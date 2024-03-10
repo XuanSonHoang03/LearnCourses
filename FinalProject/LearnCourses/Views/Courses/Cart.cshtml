@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Cart";
+    Layout = null;
+    var course = ViewBag.Courses as List<BusinessObject.Model.Course>;
+    int count = course.Count;
+    decimal total = 0;
+    foreach(var item in course)
+    {
+        total += item.Price;
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cart | Course</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,500,700' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" href="../home/cart.css">
+</head>
+
+<body>
+
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col">
+                                <h4><b>Shopping Cart</b></h4>
+                            </div>
+                            <div class="col align-self-center text-right text-muted">@count courses</div>
+                        </div>
+                    </div>
+                @if(count == 0)
+                {
+                    <h3>No courses in cart</h3>
+                }
+                @foreach (var item in course)
+                {
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div><input type="checkbox" class="checkboxTotal" value="@item.Price"></div>
+                            <div class="col">
+                                <div class="row text-muted">@item.Name</div>
+                                <div class="row">@item.Name</div>
+                            </div>
+                            <div class="col">
+                                @item.Description
+                            </div>
+                            <div class="col">$@item.Price<span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    }
+                    <div class="back-to-shop"><a href="/Home/Courses">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                </div>
+                <div class="col-md-4 summary">
+                    <div>
+                        <h5><b>Summary</b></h5>
+                    </div>
+                    <hr>
+                    <form>
+                        <p>Discount</p>
+                        <select>
+                            <option class="text-muted"> Standard-Delivery- &euro;5.00</option>
+                        </select>
+                        <p>GIVE CODE</p>
+                        <input id="code" placeholder="Enter your code">
+                    </form>
+                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                        <div class="col">TOTAL PRICE</div>
+                    <div class="col text-right" id="totalPrice">$0</div>
+                    </div>
+                    <button class="btn"><a href=""></a></button>
+                </div>
+            </div>
+
+        </div>
+    <!--end content-->
+
+</body>
+<script>
+    const checkboxes = document.querySelectorAll('.checkboxTotal');
+    const totalPrice = document.getElementById('totalPrice');
+
+    checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', (e) => {
+                let total = 0;
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        total += parseFloat(checkbox.value);
+                    }
+                });
+                totalPrice.textContent = `$${total}`;
+            });
+        });
+
+
+</script>
+
+</html>

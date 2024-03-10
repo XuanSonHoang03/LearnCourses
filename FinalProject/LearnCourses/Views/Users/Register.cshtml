@@ -1,0 +1,127 @@
+﻿@{
+	Layout = null;
+}
+@model BusinessObject.Model.User;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V4</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="../login/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../login/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../login/fonts/iconic/css/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../login/vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../login/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../login/vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../login/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../login/vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../login/css/main.css">
+	<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('../login/images/bg-01.jpg');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form" asp-action="Register" method="post">
+					<span class="login100-form-title p-b-49">
+						Register
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate="firstname is reauired">
+						<span class="label-input100">FirstName</span>
+						@Html.TextBoxFor(m => m.FirstName, new { @class = "input100", @type = "text", @placeholder = "Type your firstname" })
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate="Lastname is required">
+						<span class="label-input100">LastName</span>
+						@Html.TextBoxFor(m => m.LastName, new { @class = "input100", @type = "text", @placeholder = "Type your lastname" })
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						@Html.TextBoxFor(m => m.Username, new { @class = "input100", @type = "text", @placeholder = "Type your username" })
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate="Email is required">
+						<span class="label-input100">Email</span>
+						@Html.TextBoxFor(m => m.Email, new { @class = "input100", @type = "text", @placeholder = "Type your email" })
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate="Password is required">
+						<span class="label-input100">Password</span>
+						@Html.TextBoxFor(m => m.Password, new { @class = "input100", @type = "password", @placeholder = "Type your password" })
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate="Re-Password is required">
+						<span class="label-input100">Re-Password</span>
+						<input class="input100" type="password" name="pass" placeholder="Type your password">
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+
+					<div>
+						<input type="checkbox" required>   I agree to the terms and conditions
+					</div> <br>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Signup
+							</button>
+						</div>
+					</div>
+					<br>
+				</form>
+				<div class="container-login100-form-btn">
+					<div class="wrap-login100-form-btn">
+						<div class="login100-form-bgbtn"></div>
+						<button class="login100-form-btn">
+							<a style="color: white" href="/Users/Login">Back</a>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+	<!--===============================================================================================-->
+	<script src="../login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="../login/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="../login/vendor/bootstrap/js/popper.js"></script>
+	<script src="../login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="../login/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="../login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../login/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="../login/vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="../login/js/main.js"></script>
+
+</body>
+</html>
