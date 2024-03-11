@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hoSzqn9L+8dMWGc3EV5nlj8Q0Ncq9vZ8cuXAIMrBrJQNO9g7xBH+xuj57/DZch3FUVt9Gq0K7CKy+7AKJ6oYKg==",
+  "dgSpecHash": "8P7KgtFU3EnLOR0CxOt82xSEwUVwWmmDWyIsGgyr2DJqxKkhS2yzU91P1Xy0CCh+zgpIF5HDUuhzU7dM9CrZ0A==",
   "success": true,
-  "projectFilePath": "D:\\Ki5-SP24\\PRN211\\Github\\FinalProject\\BusinessObject\\BusinessObject.csproj",
+  "projectFilePath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

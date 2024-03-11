@@ -2,7 +2,7 @@
     Layout = null;
     var list = ViewBag.Discussions as List<BusinessObject.Model.Discussion>;
 }
-
+@model BusinessObject.Model.User;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -241,9 +241,12 @@
     </section>
     <!-- End breadcrumb -->
     <!-- Start blog  --> 
+    <div>
+        <h2>@ViewBag.Message</h2>
+    </div>
     <div class="row">
         <div class="col-md-12" style="display: flex; justify-content:center; align-content:center; margin: 10px 0px ">
-            <button class="btn btn-primary"><a href="/Blog/NewBlog">NEW</a></button>
+            <button class="btn btn-primary"><a style="color: white" href="/Blog/NewBlog">NEW</a></button>
         </div>
     </div>
     <secsion class="blogdiscuss">
@@ -251,12 +254,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Discussion Comment -->
-                    @foreach(var item in list)
+                    @foreach (var item in list)
                     {
                         <div class="discussion-comment">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h5>Name: John Doe</h5>
+                                    <h5>@Model.FirstName @Model.LastName</h5>
                                 </div>
                                 <div class="col-md-6 text-right">
                                     <h6>Created Date: @item.CreatedDate</h6>
@@ -273,13 +276,14 @@
                                 <div class="col-md-12 text-right">
                                     <div class="btn-group">
                                         <button class="btn btn-primary">View</button>
-                                        <button class="btn btn-success">Update</button>
-                                        <button class="btn btn-danger">Delete</button>
+                                        <button class="btn btn-success"><a style="color:white" href="/Blog/UpdateBlog?id=@item.Id">Update</a></button>
+                                        <button class="btn btn-danger"><a style="color:white" href="/Blog/DeleteBlog?id=@item.Id">Delete</a></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     }
+
                     <!-- End Discussion Comment -->
                 </div>
             </div>

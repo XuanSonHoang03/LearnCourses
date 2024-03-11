@@ -73,7 +73,7 @@
                     <form>
                         <p>Discount</p>
                         <select>
-                            <option class="text-muted"> Standard-Delivery- &euro;5.00</option>
+                            <option class="text-muted">None</option>
                         </select>
                         <p>GIVE CODE</p>
                         <input id="code" placeholder="Enter your code">
@@ -82,7 +82,10 @@
                         <div class="col">TOTAL PRICE</div>
                     <div class="col text-right" id="totalPrice">$0</div>
                     </div>
-                    <button class="btn"><a href=""></a></button>
+                    <form asp-action="CheckOut" asp-controller="Checkout">
+                        <button class="btn">Check out</button>
+                    </form>
+                    
                 </div>
             </div>
 

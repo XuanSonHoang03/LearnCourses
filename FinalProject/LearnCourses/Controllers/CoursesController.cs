@@ -104,6 +104,7 @@ namespace LearnCourses.Controllers
             {
                 return RedirectToAction("Courses", "Courses");
             }
+
             int UserId = Convert.ToInt32(SessionExtensions.GetString(HttpContext.Session, "id"));
             Rating rating = new Rating()
             {

@@ -70,21 +70,15 @@
 <body>
     <div class="container">
         <h2>Add New Blog Discussion</h2>
-        <form id="blogForm" asp-action="NewBlog" method="post">
-            @Html.AntiForgeryToken()
-            <div class="form-group">
-                <label for="coursesName">Courses Name:</label>
-                <input type="text" id="coursesName" name="coursesName" class="form-control" required>
-            </div>
+        <form id="blogForm" asp-controller="Blog" asp-action="NewBlog" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label for="title">Title:</label>
-                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @name = "title", @type = "text" })
-                @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                <input type="text" class="form-control" id="title" asp-for="Title">
             </div>
             <div class="form-group">
                 <label for="content">Content:</label>
-                @Html.TextAreaFor(m => m.Content, new { @class = "form-control", @id = "content", @name = "content", @rows = "5", @type = "text" })
-                @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
+                <textarea asp-for="Content" class="form-control" id="content" rows="5"></textarea>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="policyCheckbox" name="policyCheckbox" required>
@@ -94,6 +88,7 @@
             <div>@ViewBag.Error</div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
 
     </div>
 

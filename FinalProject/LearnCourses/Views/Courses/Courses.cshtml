@@ -33,6 +33,10 @@
             width: 90%;
             object-fit: cover;
         }
+        .hover:after{
+            transition: 0.3s;
+            background-color: blue;
+        }
     </style>
 
     <!-- Google Fonts -->
@@ -174,7 +178,7 @@
                                     <div class="row">
                                         @foreach (var c in coursesList)
                                         {
-                                            <div class="col-md-6 col-sm-6">
+                                            <div class="col-md-4 col-sm-4 hover">
                                                 <div class="mu-latest-course-single">
                                                     <figure class="mu-latest-course-img">
                                                         <a href="#"><img class="image-content" src="@c.ThumbnailImage" alt="img"></a>

@@ -1,0 +1,122 @@
+﻿@{
+    Layout = null;
+}
+@model BusinessObject.Model.Discussion;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Blog Discussion</title>
+    <script src="https://cdn.tiny.cloud/1/kaapxfwaz25vc7vxujt23b7wp8uqhbcxbka2gxlvtlwl9s84/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .tox-notifications-container {
+            display: none !important;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+            .btn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Update Blog Discussion</h2>
+        <form id="blogForm" asp-action="UpdateBlog" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (Model != null)
+            {
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" asp-for="Title" value="@Model.Title">
+                </div>
+                <div class="form-group">
+                    <label for="content">Content:</label>
+                    <textarea asp-for="Content" class="form-control" id="content" rows="5">@Model.Content</textarea>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="policyCheckbox" name="policyCheckbox" required>
+                    <label for="policyCheckbox">I agree to the policy</label>
+                </div>
+                <div>@ViewBag.Success</div>
+                <div>@ViewBag.Error</div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    Invalid discussion. Please ensure you're editing an existing discussion.
+                </div>
+            }
+        </form>
+
+
+
+    </div>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+    </script>
+</body>
+
+</html>

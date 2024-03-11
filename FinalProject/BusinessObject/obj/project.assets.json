@@ -2456,11 +2456,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Ki5-SP24\\PRN211\\Github\\FinalProject\\BusinessObject\\BusinessObject.csproj",
+      "projectUniqueName": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj",
       "projectName": "BusinessObject",
-      "projectPath": "D:\\Ki5-SP24\\PRN211\\Github\\FinalProject\\BusinessObject\\BusinessObject.csproj",
+      "projectPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "D:\\Ki5-SP24\\PRN211\\Github\\FinalProject\\BusinessObject\\obj\\",
+      "outputPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",

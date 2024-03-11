@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gsK+mkUBbyTSzBHi/ZvxZIwmLwPwmuBseRckiJuPX34NGtwclpkwM+weYVL+uJn2NELz4hyjz6UdANh/TkTChA==",
+  "dgSpecHash": "Qg/wK5adCBSyfqSyAZb5voc3l1/ZvkZmMdjR0IXjGxNZRjKPj8VRaKy0PYTnnl7snjjKcookenXoS6asGCodLg==",
   "success": true,
-  "projectFilePath": "D:\\Ki5-SP24\\PRN211\\Github\\FinalProject\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
