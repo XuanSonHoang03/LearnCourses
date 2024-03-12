@@ -117,7 +117,7 @@
                                 <li><a href="/Courses/CoureDetails">Course Detail</a></li>
                                 </ul>
                             </li>
-                            <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="/Home/Gallery">Gallery</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="fa fa-angle-down"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -222,19 +222,21 @@
                         <div class="mu-contact-right">
                             <div class="mu-contact-form">
                                 <h2>Change Password</h2>
-                                <form class="change-password-form">
+                                <form class="change-password-form" asp-action="ChangePassword" method="post">
                                     <div class="form-group">
                                         <label for="current-password">Current Password <span class="required">*</span></label>
-                                        <input type="password" class="form-control" required="required" name="current-password">
+                                        <input type="password" class="form-control" required="required" name="oldPassword">
                                     </div>
                                     <div class="form-group">
                                         <label for="new-password">New Password <span class="required">*</span></label>
-                                        <input type="password" class="form-control" required="required" name="new-password">
+                                        <input type="password" class="form-control" required="required" name="newPassword">
                                     </div>
                                     <div class="form-group">
                                         <label for="confirm-password">Confirm New Password <span class="required">*</span></label>
-                                        <input type="password" class="form-control" required="required" name="confirm-password">
+                                        <input type="password" class="form-control" required="required" name="confirmPassword">
                                     </div>
+                                    <h3 style="color: red">@TempData["Fail"]</h3>
+                                    <h3 style="color: green">@TempData["Ok"]</h3>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Change Password</button>
                                     </div>

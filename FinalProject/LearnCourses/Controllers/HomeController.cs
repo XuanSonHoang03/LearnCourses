@@ -79,7 +79,41 @@ namespace LearnCourses
         public IActionResult Contact()
         {
             return View();
-
+        }
+        public IActionResult ChangePassword(string oldPassword, string newPassword, string confirmPassword)
+        {
+            if (checkSession())
+            {
+                return RedirectToAction("Login", "Users");
+            }
+            if (oldPassword != null && newPassword != null && confirmPassword != null)
+            {
+                if (newPassword.Equals(confirmPassword))
+                {
+                    User user = userRepository.GetUserById(Convert.ToInt32(SessionExtensions.GetString(HttpContext.Session, "id")));
+                    if (user.Password.Equals(oldPassword))
+                    {
+                        user.Password = newPassword;
+                        userRepository.UpdateUser(user);
+                        TempData["Ok"] = "Change password successfully";
+                        return RedirectToAction("Profile", "Home");
+                    }
+                    TempData["Fail"] = "Old password is incorrect";
+                    return RedirectToAction("Profile", "Home");
+                }
+                TempData["Fail"] = "New password and confirm password are not the same";
+                return RedirectToAction("Profile", "Home");
+            }
+            TempData["Fail"] = "Change password failed";
+            return RedirectToAction("Profile", "Home");
+        }
+        public IActionResult Gallery()
+        {
+            return View();
+        }
+        public IActionResult MyLesson()
+        {
+            return View();
         }
     }
 }
