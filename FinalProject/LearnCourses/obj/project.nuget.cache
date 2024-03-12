@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jUjM8vNfsxphk7C9Tw05xCxEcnfzgDnRBCo/YCKeeWHBb65wvm6NHT3br5NrbR6Y1n4zX5/f9N7aNKLXqlXIJQ==",
+  "dgSpecHash": "QIxweQAxavmOhhYgVxhc0JsCyHPUvGyDtLab+02GRtSq0NJhR1UrNvQsrvoutTMVtXP4u+nnAN6RmZVFuasjRw==",
   "success": true,
-  "projectFilePath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj",
+  "projectFilePath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

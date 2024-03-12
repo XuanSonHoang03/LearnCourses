@@ -1,5 +1,6 @@
 ﻿using BusinessObject.Model;
 using LearnCourses.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using VNPAY_CS_ASPX;
 
 namespace LearnCourses.Service
@@ -56,6 +57,7 @@ namespace LearnCourses.Service
             var vnp_ResponseCode = collection.FirstOrDefault(x => x.Key == "vnp_ResponseCode").Value;
             var vnp_orderInfo = collection.FirstOrDefault(x => x.Key == "vnp_OrderInfo").Value;
             bool checkSignature = vnpay.ValidateSignature(vnp_SecureHash, _config["Vnpay:Vnp_HashSecret"]);
+
             if (checkSignature)
             {
                 var order = new OrderInfo()

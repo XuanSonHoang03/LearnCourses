@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj": {}
+    "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj": {}
   },
   "projects": {
-    "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj",
+        "projectPath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\obj\\",
+        "outputPath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -79,14 +79,14 @@
         }
       }
     },
-    "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj": {
+    "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj",
+        "projectPath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\DataAccess\\obj\\",
+        "outputPath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -103,8 +103,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj"
+              "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -138,14 +138,14 @@
         }
       }
     },
-    "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj": {
+    "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj",
+        "projectUniqueName": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj",
         "projectName": "LearnCourses",
-        "projectPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj",
+        "projectPath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\LearnCourses.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\LearnCourses\\obj\\",
+        "outputPath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -162,11 +162,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj"
+              "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\BusinessObject\\BusinessObject.csproj"
               },
-              "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "D:\\Ki5-SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj"
+              "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\DataAccess\\DataAccess.csproj"
               }
             }
           }

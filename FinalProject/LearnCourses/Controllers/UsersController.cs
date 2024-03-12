@@ -28,12 +28,18 @@ namespace LearnCourses.Controllers
         {
                 if(username == "admin@fstore.com" && password == "admin@@")
                 {
+                    SessionExtensions.SetString(HttpContext.Session, "id", "admin");
 					return RedirectToAction("UserManage", "Admin");
 				}
 
                 User user = userRepository.GetUserByUserPass(username, password);
 				if(user != null)
                 {
+                    if(user.IsDeleted == 1)
+                    {
+                        ViewBag.Error = "Your account has been blocked";
+                        return View();
+                    }
                     SessionExtensions.SetString(HttpContext.Session, "id", user.Id.ToString());
                     SessionExtensions.SetString(HttpContext.Session, "username", username);
 					return RedirectToAction("HomePage", "Home");

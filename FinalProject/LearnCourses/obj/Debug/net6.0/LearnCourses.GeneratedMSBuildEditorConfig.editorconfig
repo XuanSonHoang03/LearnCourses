@@ -9,91 +9,115 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LearnCourses
 build_property.RootNamespace = LearnCourses
-build_property.ProjectDir = D:\Ki5-SP24\PRN211\git\FinalProject\LearnCourses\
+build_property.ProjectDir = D:\Ki 5- SP24\PRN211\git\FinalProject\LearnCourses\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Ki5-SP24\PRN211\git\FinalProject\LearnCourses
+build_property.MSBuildProjectDirectory = D:\Ki 5- SP24\PRN211\git\FinalProject\LearnCourses
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Admin/UserManage.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Admin/CourseDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ291cnNlRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Admin/CourseManage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ291cnNlTWFuYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Admin/NewCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTmV3Q291cnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Admin/NewLesson.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTmV3TGVzc29uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Admin/UserManage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlck1hbmFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Blog/BlogPublic.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Blog/BlogPublic.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xCbG9nUHVibGljLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Blog/BlogSingle.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Blog/BlogSingle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xCbG9nU2luZ2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Blog/NewBlog.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Blog/NewBlog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xOZXdCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Blog/UpdateBlog.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Blog/UpdateBlog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xVcGRhdGVCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Courses/Cart.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Checkout/PaymentFailed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcUGF5bWVudEZhaWxlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Checkout/PaymentSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcUGF5bWVudFN1Y2Nlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Courses/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Courses/Checkout.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Courses/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Courses/CourseDetails.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Courses/CourseDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDb3Vyc2VEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Courses/Courses.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Courses/Courses.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDb3Vyc2VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Home/Contact.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Home/HomePage.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Home/HomePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Home/Index.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Home/Profile.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Home/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Shared/Error.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Users/Login.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Users/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Users/Register.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Users/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/_ViewImports.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/_ViewStart.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki5-SP24/PRN211/git/FinalProject/LearnCourses/Views/Shared/_Layout.cshtml]
+[D:/Ki 5- SP24/PRN211/git/FinalProject/LearnCourses/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-wt2ihd3xlm

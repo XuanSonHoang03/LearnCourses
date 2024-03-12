@@ -67,9 +67,16 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
                 <!-- active -->
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="/Admin/UserManage">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Users <Table></Table></span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <!-- active -->
+                <a class="nav-link" href="/Admin/CourseManage">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Courses <Table></Table></span>
                 </a>
             </li>
 
@@ -164,7 +171,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="/Admin/Logout" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -186,61 +193,67 @@
                     </p>
 
                     <!-- DataTales Example -->
+                    
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
+                            <h6>@ViewBag.Success</h6>
+                            <h6>@ViewBag.Error</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Created date</th>
-                                            <th>IsActive</th>
-                                            <th>IsDeleted</th>
-                                            <th>Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Created date</th>
-                                            <th>IsActive</th>
-                                            <th>IsDeleted</th>
-                                            <th>Details</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        @if(userlist == null)
-                                        {
-                                            <h2 style="color:red">No Data</h2>
-                                        }
-                                        @foreach (var item in userlist)
-                                        {
+                            <form asp-action="BlockUser" asp-controller="Admin" method="post">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
                                             <tr>
-                                                <td>@item.Id</td>
-                                                <td>@item.FirstName  @item.LastName</td>
-                                                <td>@item.Username</td>
-                                                <td>@item.Email</td>
-                                                <td>@item.CreatedDate</td>
-                                                <td>@item.IsActive</td>
-                                                <td>@item.IsDeleted</td>
-                                                <td><a href="#">Details</a></td>
+                                                <th>#</th>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Username</th>
+                                                <th>Email</th>
+                                                <th>Created date</th>
+                                                <th>IsActive</th>
+                                                <th>IsDeleted</th>
+                                                <th>Details</th>
                                             </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                            <button class="btn btn-danger" name="action" value="delete">Delete Selected</button>
-                            <form action="deleteUser" method="get">
-                                <button class="btn btn-success" name="action" value="open">Open Selected</button>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Username</th>
+                                                <th>Email</th>
+                                                <th>Created date</th>
+                                                <th>IsActive</th>
+                                                <th>IsDeleted</th>
+                                                <th>Details</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            @if(userlist == null)
+                                            {
+                                                <h2 style="color:red">No Data</h2>
+                                            }
+                                            @foreach (var item in userlist)
+                                            {
+                                                <tr>
+                                                    <th><input type="checkbox" name="id" value="@item.Id" /></th>
+                                                    <td>@item.Id</td>
+                                                    <td>@item.FirstName  @item.LastName</td>
+                                                    <td>@item.Username</td>
+                                                    <td>@item.Email</td>
+                                                    <td>@item.CreatedDate</td>
+                                                    <td>@item.IsActive</td>
+                                                    <td>@item.IsDeleted</td>
+                                                    <td><a href="#">Details</a></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button class="btn btn-danger" name="feature" value="delete">Delete Selected</button>
+                                <button class="btn btn-success" name="feature" value="open">Open Selected</button>
                             </form>
                         </div>
                     </div>
@@ -283,7 +296,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/Admin/Logout">Logout</a>
                 </div>
             </div>
         </div>
