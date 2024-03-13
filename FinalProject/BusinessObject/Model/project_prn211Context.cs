@@ -24,6 +24,7 @@ namespace BusinessObject.Model
         public virtual DbSet<Rating> Ratings { get; set; } = null!;
         public virtual DbSet<TransactionsHistory> TransactionsHistories { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
+        public virtual DbSet<UserDissucss> UserDissucsses { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -212,27 +213,27 @@ namespace BusinessObject.Model
                     .WithMany(p => p.TransactionsHistories)
                     .HasForeignKey(d => d.CourseId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Transacti__Cours__619B8048");
+                    .HasConstraintName("FK__Transacti__Cours__6754599E");
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.TransactionsHistories)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Transacti__Order__628FA481");
+                    .HasConstraintName("FK__Transacti__Order__68487DD7");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.TransactionsHistories)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Transacti__UserI__60A75C0F");
+                    .HasConstraintName("FK__Transacti__UserI__66603565");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasIndex(e => e.Username, "UQ__Users__536C85E46E88D22B")
+                entity.HasIndex(e => e.Username, "UQ__Users__536C85E4AA2DED19")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Email, "UQ__Users__A9D10534759004DB")
+                entity.HasIndex(e => e.Email, "UQ__Users__A9D105348AA9AD1F")
                     .IsUnique();
 
                 entity.Property(e => e.Balance).HasColumnType("money");
@@ -270,6 +271,35 @@ namespace BusinessObject.Model
                 entity.Property(e => e.Username)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<UserDissucss>(entity =>
+            {
+                entity.ToTable("UserDissucss");
+
+                entity.Property(e => e.Content)
+                    .IsUnicode(false)
+                    .HasColumnName("content");
+
+                entity.Property(e => e.CreatedDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdatedDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.HasOne(d => d.Disscuss)
+                    .WithMany(p => p.UserDissucsses)
+                    .HasForeignKey(d => d.DisscussId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UserDissu__Dissc__619B8048");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserDissucsses)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UserDissu__UserI__60A75C0F");
             });
 
             OnModelCreatingPartial(modelBuilder);

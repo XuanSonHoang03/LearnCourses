@@ -3,15 +3,24 @@ using DataAccess.Repository.CourseRepo;
 using DataAccess.Repository.LessonRepo;
 using DataAccess.Repository.UserRepo;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using System.Net;
+using System.Text.RegularExpressions;
 
 namespace LearnCourses.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
         public ILessonRepostory lessonRepostory = new LessonRepository();
         public ICourseRepository courseRepository = new CourseRepository();
         public IUserRepository userRepository = new UserRepsitory();
         public List<User> users = null;
+        public AdminController(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
+        }
         public IActionResult Index()
         {
             return View();
@@ -60,9 +69,35 @@ namespace LearnCourses.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult NewCourse(Course course)
+        public IActionResult NewCourse(Course course, IFormFile img)
         {
-                Course newCourse = new Course()
+            //upload image
+            if (img != null)
+            {
+                string filename = Path.GetFileName(img.FileName);
+                string directoryPath = Path.Combine(_webHostEnvironment.WebRootPath, "home", "assets", "img");
+                string filePath = Path.Combine(directoryPath, filename);
+
+                // Create the directory if it doesn't exist
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+
+                using(FileStream fileStream = System.IO.File.Create(directoryPath + filename))
+                {
+                    img.CopyTo(fileStream);
+                    fileStream.Flush(); 
+                }
+                    
+                course.ThumbnailImage = "../home/assets/img/" + filename;
+            }
+
+
+
+            //end upload image
+
+            Course newCourse = new Course()
                 {
                     Content = course.Content,
                     Name = course.Name,
@@ -75,8 +110,9 @@ namespace LearnCourses.Controllers
                     TeacherId = 1
                 };
                 courseRepository.AddCourse(newCourse);
-                return RedirectToAction("CourseManage");
+            return RedirectToAction("CourseManage");
         }
+
         public IActionResult CourseDetails (int id)
         {
             List<Course> course = courseRepository.GetCourseById(id);

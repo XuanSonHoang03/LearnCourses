@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "04TyJWhspAWNcnUiyT8FNhfeFAPBzuXNJmoiO51rtlg=",
+  "Hash": "CyMY7RqLijMb1sivygEEkOwnlblWWQAKza9o9DUo7kI=",
   "Source": "LearnCourses",
   "BasePath": "_content/LearnCourses",
   "Mode": "Default",
@@ -36535,6 +36535,25 @@
       "OriginalItemSpec": "wwwroot\\home\\assets\\img\\gallery\\small\\9.jpg"
     },
     {
+      "Identity": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\img2022-09-19 (1).png",
+      "SourceId": "LearnCourses",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\",
+      "BasePath": "_content/LearnCourses",
+      "RelativePath": "home/assets/img/img2022-09-19 (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\home\\assets\\img\\img2022-09-19 (1).png"
+    },
+    {
       "Identity": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\loader.gif",
       "SourceId": "LearnCourses",
       "SourceType": "Discovered",
@@ -36628,6 +36647,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\home\\assets\\img\\math3.jpg"
+    },
+    {
+      "Identity": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\Screenshot 2023-03-03 103101.png",
+      "SourceId": "LearnCourses",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\",
+      "BasePath": "_content/LearnCourses",
+      "RelativePath": "home/assets/img/Screenshot 2023-03-03 103101.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\home\\assets\\img\\Screenshot 2023-03-03 103101.png"
     },
     {
       "Identity": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\seftlearn.png",
@@ -36856,6 +36894,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\home\\assets\\img\\testimonial-bg.jpg"
+    },
+    {
+      "Identity": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\imgmath3.jpg",
+      "SourceId": "LearnCourses",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\",
+      "BasePath": "_content/LearnCourses",
+      "RelativePath": "home/assets/imgmath3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\home\\assets\\imgmath3.jpg"
     },
     {
       "Identity": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\js\\bootstrap.js",

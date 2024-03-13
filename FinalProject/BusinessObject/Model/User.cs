@@ -12,6 +12,7 @@ namespace BusinessObject.Model
             Orders = new HashSet<Order>();
             Ratings = new HashSet<Rating>();
             TransactionsHistories = new HashSet<TransactionsHistory>();
+            UserDissucsses = new HashSet<UserDissucss>();
         }
 
         public int Id { get; set; }
@@ -32,5 +33,6 @@ namespace BusinessObject.Model
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Rating> Ratings { get; set; }
         public virtual ICollection<TransactionsHistory> TransactionsHistories { get; set; }
+        public virtual ICollection<UserDissucss> UserDissucsses { get; set; }
     }
 }
