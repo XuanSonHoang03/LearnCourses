@@ -7537,6 +7537,18 @@
       "PackagePath": "staticwebassets\\home\\assets\\fonts\\glyphicons-halflings-regular.woff2"
     },
     {
+      "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img2022-09-19 (1).png",
+      "PackagePath": "staticwebassets\\home\\assets\\img2022-09-19 (1).png"
+    },
+    {
+      "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img2022-09-19 (2).png",
+      "PackagePath": "staticwebassets\\home\\assets\\img2022-09-19 (2).png"
+    },
+    {
+      "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\2022-09-19 (1).png2022-09-19 (1).png",
+      "PackagePath": "staticwebassets\\home\\assets\\img\\2022-09-19 (1).png2022-09-19 (1).png"
+    },
+    {
       "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\Screenshot 2023-03-03 103101.png",
       "PackagePath": "staticwebassets\\home\\assets\\img\\Screenshot 2023-03-03 103101.png"
     },
@@ -7693,6 +7705,22 @@
       "PackagePath": "staticwebassets\\home\\assets\\img\\img2022-09-19 (1).png"
     },
     {
+      "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\img2022-09-19 (2).png",
+      "PackagePath": "staticwebassets\\home\\assets\\img\\img2022-09-19 (2).png"
+    },
+    {
+      "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\img2022-09-25.png",
+      "PackagePath": "staticwebassets\\home\\assets\\img\\img2022-09-25.png"
+    },
+    {
+      "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\imgScreenshot 2024-03-12 014923.png",
+      "PackagePath": "staticwebassets\\home\\assets\\img\\imgScreenshot 2024-03-12 014923.png"
+    },
+    {
+      "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\imgmath3.jpg",
+      "PackagePath": "staticwebassets\\home\\assets\\img\\imgmath3.jpg"
+    },
+    {
       "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\loader.gif",
       "PackagePath": "staticwebassets\\home\\assets\\img\\loader.gif"
     },
@@ -7759,10 +7787,6 @@
     {
       "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\img\\testimonial-bg.jpg",
       "PackagePath": "staticwebassets\\home\\assets\\img\\testimonial-bg.jpg"
-    },
-    {
-      "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\imgmath3.jpg",
-      "PackagePath": "staticwebassets\\home\\assets\\imgmath3.jpg"
     },
     {
       "Id": "D:\\Ki 5- SP24\\PRN211\\git\\FinalProject\\LearnCourses\\wwwroot\\home\\assets\\js\\bootstrap.js",

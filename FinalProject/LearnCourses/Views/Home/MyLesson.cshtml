@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    var list = ViewBag.Lessons as List<BusinessObject.Model.Lesson>;
 }
 @addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
@@ -201,37 +202,32 @@
                     <div class="mu-course-content-area">
                         <div class="row">
                             <div class="col-xs-12">
-                                <!-- start course content container -->
+                                <!-- start course content container --> 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered mu-table-custom">
-                                        <thead>
-                                            <tr>
-                                                <th class="mu-th-stt">STT</th>
-                                                <th class="mu-th-name">Name</th>
-                                                <th class="mu-th-content">Content</th>
-                                                <th class="mu-th-video">VideoUrl</th>
-                                                <th class="mu-th-process">Process</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Course 1</td>
-                                                <td>Course content 1</td>
-                                                <td><a href="video_url_1">Watch Video 1</a></td>
-                                                <td class="mu-td-process">100%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Course 2</td>
-                                                <td>Course content 2</td>
-                                                <td><a href="video_url_2">Watch Video 2</a></td>
-                                                <td class="mu-td-process">90%</td>
-                                            </tr>
-                                            <!-- Add more rows as needed -->
-                                        </tbody>
-
-                                    </table>
+                                    
+                                        <table class="table table-bordered mu-table-custom">
+                                            <thead>
+                                                <tr>
+                                                    <th class="mu-th-stt">STT</th>
+                                                    <th class="mu-th-name">Name</th>
+                                                    <th class="mu-th-content">Content</th>
+                                                    <th class="mu-th-video">VideoUrl</th>
+                                                    <th class="mu-th-process">Process</th>
+                                                </tr>
+                                            </thead>
+                                        @foreach (var c in list)
+                                        {
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>@c.Name</td>
+                                                    <td>@c.Content</td>
+                                                    <td><a href="video_url_1">@c.VideoUrl</a></td>
+                                                    <td class="mu-td-process">0%</td>
+                                                    </tr>
+                                            </tbody>
+                                            }
+                                        </table>
                                 </div>
                                 <!-- end course content container -->
                             </div>

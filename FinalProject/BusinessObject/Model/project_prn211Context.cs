@@ -57,9 +57,7 @@ namespace BusinessObject.Model
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.ThumbnailImage)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
+                entity.Property(e => e.ThumbnailImage).IsUnicode(false);
 
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
@@ -85,7 +83,6 @@ namespace BusinessObject.Model
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Discussions)
                     .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Discussio__UserI__5070F446");
             });
 
@@ -215,12 +212,6 @@ namespace BusinessObject.Model
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Transacti__Cours__6754599E");
 
-                entity.HasOne(d => d.Order)
-                    .WithMany(p => p.TransactionsHistories)
-                    .HasForeignKey(d => d.OrderId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Transacti__Order__68487DD7");
-
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.TransactionsHistories)
                     .HasForeignKey(d => d.UserId)
@@ -230,10 +221,10 @@ namespace BusinessObject.Model
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasIndex(e => e.Username, "UQ__Users__536C85E4AA2DED19")
+                entity.HasIndex(e => e.Username, "UQ__Users__536C85E455BD4FAE")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Email, "UQ__Users__A9D105348AA9AD1F")
+                entity.HasIndex(e => e.Email, "UQ__Users__A9D10534665E94FF")
                     .IsUnique();
 
                 entity.Property(e => e.Balance).HasColumnType("money");

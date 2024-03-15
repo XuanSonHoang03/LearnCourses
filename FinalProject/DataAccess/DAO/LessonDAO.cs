@@ -42,6 +42,12 @@ namespace DataAccess.DAO
             context.Lessons.Add(lesson);
             context.SaveChanges();
         }
+        public void AddLessonWithCouseId(Lesson lesson, int courseId)
+        {
+            lesson.CourseId = courseId;
+            context.Lessons.Add(lesson);
+            context.SaveChanges();
+        }
         public List<Lesson> GetLessonByCourseID(int courseId)
         {
             return context.Lessons.Where(c => c.CourseId == courseId).ToList();

@@ -6,11 +6,14 @@ using BusinessObject.Model;
 using DataAccess.Repository.LessonRepo;
 using DataAccess.Repository.UserRepo;
 using DataAccess.Repository.OrderRepo;
+using DataAccess.Repository.EnrollmentRepo;
 
 namespace LearnCourses
 {
     public class HomeController : Controller
     {
+        LessonRepository lessonRepository = new LessonRepository();
+        IEnrollmentRepository enrollmentRepository = new EnrollmentRepository();
         IUserRepository userRepository = new UserRepsitory();
         ICourseRepository courseRepository = new CourseRepository();
 
@@ -109,10 +112,16 @@ namespace LearnCourses
         }
         public IActionResult Gallery()
         {
+            int id = Convert.ToInt32(SessionExtensions.GetString(HttpContext.Session, "id"));
+            List<Course> listEnrollment = enrollmentRepository.GetAllCourseUserBuyed(id);
+            ViewBag.Courses = listEnrollment;
             return View();
         }
-        public IActionResult MyLesson()
+        public IActionResult MyLesson(int idCourse)
         {
+            checkSession();
+            List<Lesson> lessonlist = lessonRepository.GetLessonByCourseId(idCourse);
+            ViewBag.Lessons = lessonlist;
             return View();
         }
     }

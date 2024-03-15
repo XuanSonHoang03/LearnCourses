@@ -4,10 +4,11 @@
     var course = ViewBag.Courses as List<BusinessObject.Model.Course>;
     int count = course.Count;
     decimal total = 0;
-    foreach(var item in course)
+    foreach (var item in course)
     {
         total += item.Price;
     }
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -31,86 +32,97 @@
 </head>
 
 <body>
-
-        <div class="card">
-            <div class="row">
-                <div class="col-md-8 cart">
-                    <div class="title">
-                        <div class="row">
-                            <div class="col">
-                                <h4><b>Shopping Cart</b></h4>
-                            </div>
-                            <div class="col align-self-center text-right text-muted">@count courses</div>
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart">
+                <div class="title">
+                    <div class="row">
+                        <div class="col">
+                            <h4><b>Shopping Cart</b></h4>
                         </div>
+                        <div class="col align-self-center text-right text-muted">@count courses</div>
                     </div>
-                @if(count == 0)
+                </div>
+                @if (count == 0)
                 {
                     <h3>No courses in cart</h3>
                 }
-                @foreach (var item in course)
-                {
-                    <div class="row border-top border-bottom">
-                        <div class="row main align-items-center">
-                            <div><input type="checkbox" class="checkboxTotal" value="@item.Price"></div>
-                            <div class="col">
-                                <div class="row text-muted">@item.Name</div>
-                                <div class="row">@item.Name</div>
+                <form asp-action="CheckOut">
+                    @foreach (var item in course)
+                    {
+                        <div class="row border-top border-bottom">
+                            <div class="row main align-items-center">
+                                <div><input type="checkbox" class="checkboxTotal" value="@item.Price" data-id="@item.Id"></div>
+                                <div class="col">
+                                    <div class="row text-muted">@item.Name</div>
+                                    <div class="row">@item.Name</div>
+                                </div>
+                                <div class="col">
+                                    @item.Description
+                                </div>
+                                <div class="col">$@item.Price<span class="close">&#10005;</span></div>
                             </div>
-                            <div class="col">
-                                @item.Description
-                            </div>
-                            <div class="col">$@item.Price<span class="close">&#10005;</span></div>
                         </div>
-                    </div>
                     }
-                    <div class="back-to-shop"><a href="/Home/Courses">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                </form>
+                <div class="back-to-shop"><a href="/Home/Courses">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+            </div>
+            <div class="col-md-4 summary">
+                <div>
+                    <h5><b>Summary</b></h5>
                 </div>
-                <div class="col-md-4 summary">
-                    <div>
-                        <h5><b>Summary</b></h5>
-                    </div>
-                    <hr>
-                    <form>
-                        <p>Discount</p>
-                        <select>
-                            <option class="text-muted">None</option>
-                        </select>
-                        <p>GIVE CODE</p>
-                        <input id="code" placeholder="Enter your code">
-                    </form>
+                <hr>
+                <p>Discount</p>
+                <select>
+                    <option class="text-muted">None</option>
+                </select>
+                <p>GIVE CODE</p>
+                <input id="code" placeholder="Enter your code">
+                <form asp-action="CheckOut">
                     <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                         <div class="col">TOTAL PRICE</div>
-                    <div class="col text-right" id="totalPrice">$0</div>
-                    <input type="text" value="totalPrice" name="total" hidden />
+                        <div class="col text-right" id="totalPrice">$0</div>
+                        <input type="hidden" id="totalPriceInput" name="priceTotal" />
                     </div>
-                    <form asp-action="CheckOut" asp-controller="Checkout">
-                        <button class="btn">Check out</button>
-                    </form>
-                    
-                </div>
+                    <input type="hidden" id="selectedItems" name="selectedItems" value="" />
+                    <button id="submitButton" class="btn">Check out</button>
+                </form>
             </div>
-
         </div>
-    <!--end content-->
 
+    </div>
+    <!--end content-->
 </body>
+
 <script>
     const checkboxes = document.querySelectorAll('.checkboxTotal');
     const totalPrice = document.getElementById('totalPrice');
 
     checkboxes.forEach((checkbox) => {
-            checkbox.addEventListener('change', (e) => {
-                let total = 0;
-                checkboxes.forEach((checkbox) => {
-                    if (checkbox.checked) {
-                        total += parseFloat(checkbox.value);
-                    }
-                });
-                totalPrice.textContent = `$${total}`;
+        checkbox.addEventListener('change', (e) => {
+            let selectedItems = [];
+            let total = 0;
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    total += parseFloat(checkbox.value);
+                    selectedItems.push(checkbox.getAttribute('data-id'));
+                }
             });
+            totalPrice.textContent = `$${total}`;
+            document.getElementById('selectedItems').value = selectedItems.join(',');
         });
+    });
 
+    document.addEventListener("DOMContentLoaded", function () {
+        // Lấy tham chiếu đến các phần tử cần thiết
+        const totalPriceDiv = document.getElementById('totalPrice');
+        const totalPriceInput = document.getElementById('totalPriceInput');
 
+        // Lắng nghe sự thay đổi trong div totalPrice và cập nhật giá trị của trường input
+        totalPriceDiv.addEventListener('DOMSubtreeModified', function () {
+            totalPriceInput.value = totalPriceDiv.textContent.trim().replace('$', '');
+        });
+    });
 </script>
 
 </html>

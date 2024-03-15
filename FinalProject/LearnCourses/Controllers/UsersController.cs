@@ -1,6 +1,11 @@
 ﻿using BusinessObject.Model;
 using DataAccess.Repository.UserRepo;
+using LearnCourses.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LearnCourses.Controllers
 {
@@ -26,6 +31,7 @@ namespace LearnCourses.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(string username, string password)
         {
+            
                 if(username == "admin@fstore.com" && password == "admin@@")
                 {
                     SessionExtensions.SetString(HttpContext.Session, "id", "admin");
@@ -78,5 +84,34 @@ namespace LearnCourses.Controllers
 			}
 			return View();
 		}
+        [AllowAnonymous]
+        public async Task<IActionResult> GetCaptchaImage()
+        {
+            var validate = "";
+            var bmp = Captcha.Generate(200, 150, out validate);
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
+                result.Content = new ByteArrayContent(ms.ToArray());
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                SetCookie("CV", validate.GetHashCode() + "");
+                return File(ms.ToArray(), "image/png");
+            }
+        }
+
+        // move to base controller
+        public void SetCookie(string key, string value, int? expireTime = null)
+        {
+            CookieOptions option = new CookieOptions();
+
+            if (expireTime.HasValue)
+                option.Expires = DateTime.Now.AddMinutes(expireTime.Value);
+            else
+                option.Expires = DateTime.Now.AddMilliseconds(5 * 60 * 1000);
+
+            Response.Cookies.Append(key, value, option);
+        }
     }
 }

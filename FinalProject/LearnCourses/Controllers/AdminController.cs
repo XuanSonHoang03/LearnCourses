@@ -72,29 +72,7 @@ namespace LearnCourses.Controllers
         public IActionResult NewCourse(Course course, IFormFile img)
         {
             //upload image
-            if (img != null)
-            {
-                string filename = Path.GetFileName(img.FileName);
-                string directoryPath = Path.Combine(_webHostEnvironment.WebRootPath, "home", "assets", "img");
-                string filePath = Path.Combine(directoryPath, filename);
-
-                // Create the directory if it doesn't exist
-                if (!Directory.Exists(directoryPath))
-                {
-                    Directory.CreateDirectory(directoryPath);
-                }
-
-                using(FileStream fileStream = System.IO.File.Create(directoryPath + filename))
-                {
-                    img.CopyTo(fileStream);
-                    fileStream.Flush(); 
-                }
-                    
-                course.ThumbnailImage = "../home/assets/img/" + filename;
-            }
-
-
-
+            course.ThumbnailImage = UpLoadImage(img);
             //end upload image
 
             Course newCourse = new Course()
@@ -113,30 +91,61 @@ namespace LearnCourses.Controllers
             return RedirectToAction("CourseManage");
         }
 
+        private string UpLoadImage(IFormFile img)
+        {
+            string filename = "";
+            string filePath = "";
+            if (img != null)
+            {
+                filename = Path.GetFileName(img.FileName);
+                string directoryPath = Path.Combine(_webHostEnvironment.WebRootPath, "home", "assets", "img");
+                filePath = Path.Combine(directoryPath, filename);
+
+                // Create the directory if it doesn't exist
+                if (!Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                }
+
+                using (FileStream fileStream = System.IO.File.Create(directoryPath + filename))
+                {
+                    img.CopyTo(fileStream);
+                    fileStream.Flush();
+                }
+            }
+            return "../home/assets/img/" + filename;
+        }
+
+
         public IActionResult CourseDetails (int id)
         {
             List<Course> course = courseRepository.GetCourseById(id);
             List<Lesson> lessons = lessonRepostory.GetLessonByCourseId(id).ToList();
             ViewBag.Lessons = lessons;
             ViewBag.Course = course;
+            ViewBag.CourseId = id;
             return View();
         }
         [HttpPost]
-        public IActionResult ManageLesson(string feature, Lesson lesson)
+        public IActionResult ManageLesson(string feature, int[] lessonId, int courseId)
         {
             if (feature == "Add")
             {
-                return RedirectToAction("NewLesson");
+                return RedirectToAction("NewLesson", new {courseId = courseId});
             }
             else if (feature == "Update")
             {
-                lessonRepostory.UpdateLesson(lesson);
+                //lessonRepostory.UpdateLesson(lesson);
                 ViewBag.Success = "Update successfully";
                 return RedirectToAction("CourseDetails");
             }
             else if (feature == "Delete")
             {
-                lessonRepostory.DeleteLesson(lesson);
+                foreach(int i in lessonId)
+                {
+                    Lesson lesson = lessonRepostory.GetLessonById(i).FirstOrDefault();
+                    lessonRepostory.DeleteLesson(lesson);
+                }
                 ViewBag.Success = "Delete successfully";
                 return RedirectToAction("CourseDetails");
             }
@@ -146,10 +155,29 @@ namespace LearnCourses.Controllers
                 return RedirectToAction("Error");
             }
         }
-
-        public IActionResult NewLesson()
+        public IActionResult NewLesson(int courseId)
         {
+            ViewBag.CourseId = courseId;
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult NewLesson(Lesson lesson, int idCourse)
+        {
+            if (idCourse == null)
+            {
+                ViewBag.Error = "Add failed";
+                return View(lesson);
+            }
+            lesson.CreatedDate = DateTime.Now;
+            lesson.UpdatedDate = DateTime.Now;
+            lesson.CourseId = idCourse;
+            lesson.Order = 1;
+
+            lessonRepostory.AddLesson(lesson);
+            ViewBag.Success = "Add successfully";
+            return RedirectToAction("CourseDetails", new {id = idCourse});
         }
         public IActionResult Logout()
         {

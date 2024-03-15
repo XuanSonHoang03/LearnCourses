@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    var coursesList = ViewBag.Courses as List<BusinessObject.Model.Course>;
 }
 @addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
@@ -176,26 +177,36 @@
                                 <!-- start course content container -->
                                 <div class="mu-course-container">
                                     <div class="row">
-                                       
+                                        @if(coursesList == null)
+                                        {
+                                            <h1>There is no course</h1>
+                                        }
+                                        @foreach (var c in coursesList)
+                                        {
                                             <div class="col-md-4 col-sm-4 hover">
                                                 <div class="mu-latest-course-single">
                                                     <figure class="mu-latest-course-img">
-                                                        <a href="#"><img class="image-content" src="#" alt="img"></a>
+                                                        <a href="#"><img class="image-content" src="@c.ThumbnailImage" alt="img"></a>
                                                         <figcaption class="mu-latest-course-imgcaption">
-                                                            <a href="#">Name</a>
+                                                            <a href="#">@c.Name</a>
                                                             <span><i class="fa fa-clock-o"></i>90Days</span>
                                                         </figcaption>
                                                     </figure>
                                                     <div class="mu-latest-course-single-content">
-                                                        <h4><a href="#">Description</a></h4>
-                                                        <p>Content</p>
+                                                        <h4><a href="#">@c.Description.</a></h4>
+                                                        <p>@c.Content</p>
                                                         <div class="mu-latest-course-single-contbottom">
-                                                            <a class="mu-course-details" href="/Home/MyLesson">Details</a>
-                                                            <span class="mu-course-price" href="#">$Price</span>
+                                                            <form asp-action="MyLesson">
+                                                                <input type="hidden" name="idCourse" value="@c.Id"/>
+                                                                <a class="mu-course-details">Details</a>
+                                                                <button type="submit" class="mu-course-details">My Lesson</button>
+                                                            </form>
+                                                            <span class="mu-course-price" href="#">$@c.Price</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        }
                                     </div>
                                 </div>
                                 <!-- end course content container -->

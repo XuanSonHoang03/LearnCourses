@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LearnCourses | Contact</title>
+    <title>LearnCourses | Blog</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../home/assets/img/favicon.ico" type="image/x-icon">
@@ -269,26 +269,27 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <h4>Title: @item.Title</h4>
-                                    <p>Content: @item.Content</p>
+                                    <p>Content: @item.Content</p>   
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-right">
                                     <div class="btn-group">
-                                        <button class="btn btn-primary">View</button>
-                                        <button class="btn btn-success"><a style="color:white" href="/Blog/UpdateBlog?id=@item.Id">Update</a></button>
-                                        <button class="btn btn-danger"><a style="color:white" href="/Blog/DeleteBlog?id=@item.Id">Delete</a></button>
+                                        <form asp-action="ViewBlog">
+                                            <input type="hidden" name="DiscussId" value="@item.Id" >
+                                            <button class="btn btn-primary">View</button>
+                                            <button class="btn btn-success"><a style="color:white" href="/Blog/UpdateBlog?id=@item.Id">Update</a></button>
+                                            <button class="btn btn-danger"><a style="color:white" href="/Blog/DeleteBlog?id=@item.Id">Delete</a></button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     }
-
                     <!-- End Discussion Comment -->
                 </div>
             </div>
         </div>
-
     </secsion>
     <!-- End blog  -->
     <!-- Start footer -->

@@ -13,6 +13,7 @@ namespace DataAccess.Repository.LessonRepo
         public List<Lesson> GetLessonByCourseId(int id);
         public IEnumerable<Lesson> GetLessons();
         public void AddLesson(Lesson lesson);
+        public void AddLessonWithCouseId(Lesson lesson, int courseId);
         public void UpdateLesson(Lesson lesson);
         public void DeleteLesson(Lesson lesson);
     }

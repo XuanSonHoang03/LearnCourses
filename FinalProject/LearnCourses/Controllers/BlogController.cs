@@ -1,5 +1,6 @@
 ﻿using BusinessObject.Model;
 using DataAccess.Repository.DisscussRepo;
+using DataAccess.Repository.UserDiscussRepo;
 using DataAccess.Repository.UserRepo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -10,6 +11,7 @@ namespace LearnCourses.Controllers
 {
     public class BlogController : Controller
     {
+        public IUserDiscussRepository userDiscussRepository = new UserDiscussRepository();
         public IUserRepository userRepository = new UserRepsitory();
         public IDisscussRepository disscussRepository = new DisscussRepository();
         public IActionResult BlogSingle()
@@ -132,6 +134,32 @@ namespace LearnCourses.Controllers
                 return View();
             }
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ViewBlog(int DiscussId)
+        {
+            List<UserDissucss> listComment = userDiscussRepository.GetAllDiscuss(DiscussId);
+            Discussion discuss = disscussRepository.getDisscussById(DiscussId);
 
+            if (discuss == null)
+            {
+                return RedirectToAction("HomePage", "Home");
+            }
+
+            discuss.Content = StripHtml(discuss.Content);
+
+            ViewBag.Comment = listComment;
+            ViewBag.Discuss = discuss;
+
+            return View(discuss);
+        }
+        public IActionResult ViewBlog()
+        {
+            if(SessionExtensions.GetString(HttpContext.Session, "id") == null)
+            {
+                return RedirectToAction("Login", "Users");
+            }
+            return View();
+        }
     }
 }

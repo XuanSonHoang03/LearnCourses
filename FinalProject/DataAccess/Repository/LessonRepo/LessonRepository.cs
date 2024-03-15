@@ -20,6 +20,7 @@ namespace DataAccess.Repository.LessonRepo
             LessonDAO.Instance.DeleteLesson(lesson);
         }
 
+
         public List<Lesson> GetLessonById(int id)
         {
             return LessonDAO.Instance.GetLessonById(id);
@@ -38,6 +39,11 @@ namespace DataAccess.Repository.LessonRepo
         public void UpdateLesson(Lesson lesson)
         {
             LessonDAO.Instance.UpdateLesson(lesson);
+        }
+
+        public void AddLessonWithCouseId(Lesson lesson, int courseId)
+        {
+            LessonDAO.Instance.AddLessonWithCouseId(lesson, courseId);
         }
     }
 }

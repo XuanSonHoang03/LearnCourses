@@ -2,6 +2,7 @@
     Layout = null;
     var courseList = ViewBag.Course as List<BusinessObject.Model.Course>;
     var lessons = ViewBag.Lessons as List<BusinessObject.Model.Lesson>;
+    var courseId = ViewBag.CourseId;
 }
 @addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 
@@ -57,6 +58,7 @@
                     <h2 class="form-title">Course Settings</h2>
                     <form id="courseForm">
                         @foreach(var item in courseList){
+                            <input type="hidden" value="@courseId" />
                             <div class="form-group">
                                 <label for="name" class="form-control-label">Name:</label>
                                 <input type="text" class="form-control" id="name" name="name" value="@item.Name">
@@ -86,32 +88,33 @@
             <div class="col-md-8">
                 <div class="form-wrapper">
                     <h2 class="form-title">Lessons</h2>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Content</th>
-                                <th>Video URL</th>
-                                <th>Created Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                           @foreach(var item in lessons){
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>@item.Name</td>
-                                    <td>@item.Content</td>
-                                    <td>@item.VideoUrl</td>
-                                    <td>@item.CreatedDate</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
                     <form method="post" asp-action="ManageLesson" asp-controller="Admin">
-                        <button type="submit" class="btn btn-success btn-action" name="feature" value="Add">Add</button>
-                        <button type="submit" class="btn btn-primary btn-action" name="feature" value="Update">Update</button>
-                        <button type="submit" class="btn btn-danger btn-action" name="feature" value="Delete">Delete</button>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Content</th>
+                                    <th>Video URL</th>
+                                    <th>Created Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               @foreach(var item in lessons){
+                                    <tr>
+                                        <td><input type="checkbox" name="lessonId" value="@item.Id"/></td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Content</td>
+                                        <td>@item.VideoUrl</td>
+                                        <td>@item.CreatedDate</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                            <input type="hidden" name="courseId" value="@courseId" />
+                            <button type="submit" class="btn btn-success btn-action" name="feature" value="Add">Add</button>
+                            <button type="submit" class="btn btn-primary btn-action" name="feature" value="Update">Update</button>
+                            <button type="submit" class="btn btn-danger btn-action" name="feature" value="Delete">Delete</button>
                     </form>
 
                 </div>

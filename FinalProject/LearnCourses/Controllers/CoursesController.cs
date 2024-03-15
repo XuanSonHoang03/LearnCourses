@@ -1,14 +1,20 @@
 ﻿using BusinessObject.Model;
 using DataAccess.Repository.CourseRepo;
+using DataAccess.Repository.EnrollmentRepo;
 using DataAccess.Repository.LessonRepo;
 using DataAccess.Repository.OrderRepo;
 using DataAccess.Repository.RatingRepo;
+using DataAccess.Repository.TransactionRepo;
+using DataAccess.Repository.UserRepo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LearnCourses.Controllers
 {
     public class CoursesController : Controller
     {
+        public ITransactionHistoryRepository transactionHistoryRepository = new TransactionHistoryRepository();
+        public IUserRepository userRepository = new UserRepsitory();
+        public IEnrollmentRepository enrollmentRepository = new EnrollmentRepository();
         public IRatingRepository ratingRepository = new RatingRepository();
         public ICourseRepository courseRepository = new CourseRepository(); 
         public ILessonRepostory lessonRepository = new LessonRepository();
@@ -122,6 +128,67 @@ namespace LearnCourses.Controllers
             if (SessionExtensions.GetString(HttpContext.Session, "username") == null)
             {
                 RedirectToAction("Login", "Users");
+            }
+        }
+
+        public IActionResult CheckOut(decimal priceTotal, string[] selectedItems)
+        {
+            if (priceTotal <= 0)
+            {
+                TempData["Message"] = "Value of cart is not valid. Pls check again";
+                return RedirectToAction("PaymentFailed", "Checkout");
+            }
+            int UserId = int.Parse(SessionExtensions.GetString(HttpContext.Session, "id"));
+            User user = userRepository.GetUserById(UserId);
+
+            if (user.Balance < priceTotal) 
+            {
+                TempData["Message"] = "Not enough balance. Pls deposit more to buy it";
+                return RedirectToAction("PaymentFailed", "Checkout");
+            }
+            else
+            {
+                //add enrollment
+                foreach (var id in selectedItems)
+                {
+                    var enrollment = new Enrollment()
+                    {
+                        CourseId = int.Parse(id),
+                        UserId = UserId,
+                        CreatedDate = DateTime.Now,
+                        CompletedDate = null,
+                        Progress = 0,
+                        UpdatedDate = DateTime.Now
+                    };
+                    enrollmentRepository.AddEnrollment(enrollment);
+                }
+
+                //add tracsaction history
+                foreach (var id in selectedItems)
+                {
+                    var transactionHistory = new TransactionsHistory()
+                    {
+                        UserId = UserId,
+                        CourseId = int.Parse(id),
+                        Total = priceTotal,
+                        CreatedDate = DateTime.Now,
+                        UpdatedDate = DateTime.Now
+                    };
+                    transactionHistoryRepository.AddTransactionHistory(transactionHistory);
+                }
+
+                //delete in order: cart
+                foreach (var id in selectedItems)
+                {
+                    var order = orderRepository.GetOrdersByUserID(UserId).FirstOrDefault(x => x.CourseId == int.Parse(id));
+                    orderRepository.DeleteOrder(order);
+                }
+
+                //update user balance
+                user.Balance -= priceTotal;
+                userRepository.UpdateUser(user);
+                TempData["Message"] = "Thanh toán thành công";
+                return RedirectToAction("PaymentSuccess", "Checkout");
             }
         }
     }

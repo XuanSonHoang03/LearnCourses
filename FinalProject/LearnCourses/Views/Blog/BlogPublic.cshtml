@@ -248,6 +248,7 @@
                     <!-- Discussion Comment -->
                     @foreach (var item in list)
                     {
+                        <input type="hidden" name="DiscussId" value="@item.Id">
                         <div class="discussion-comment">
                             <div class="row">
                                     <div class="col-md-6">
@@ -258,7 +259,7 @@
                                     <h6>Update Date: @item.UpdatedDate</h6>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row">   
                                 <div class="col-md-12">
                                     <h4>Title: @item.Title</h4>
                                     <p>Content: @item.Content</p>
@@ -267,19 +268,20 @@
                             <div class="row">
                                 <div class="col-md-12 text-right">
                                     <div class="btn-group">
-                                        @if (UserId == item.User.Id)
-                                        {
+                                         <form asp-action="ViewBlog" method="post">
+                                            <input type="hidden" name="DiscussId" value="@item.Id">
                                             <button class="btn btn-primary">View</button>
-                                            <button class="btn btn-success"><a style="color:white" href="/Blog/UpdateBlog?id=@item.Id">Update</a></button>
-                                            <button class="btn btn-danger"><a style="color:white" href="/Blog/DeleteBlog?id=@item.Id">Delete</a></button>
-                                        }
-                                        <button class="btn btn-primary">Comment</button>
+                                            @if (UserId == item.User.Id)
+                                            {
+                                                <button class="btn btn-success"><a style="color:white" href="/Blog/UpdateBlog?id=@item.Id">Update</a></button>
+                                                <button class="btn btn-danger"><a style="color:white" href="/Blog/DeleteBlog?id=@item.Id">Delete</a></button>
+                                            }
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     }
-
                     <!-- End Discussion Comment -->
                 </div>
             </div>
