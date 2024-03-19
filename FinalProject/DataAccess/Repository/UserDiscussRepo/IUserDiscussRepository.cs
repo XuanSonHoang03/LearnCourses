@@ -14,6 +14,6 @@ namespace DataAccess.Repository.UserDiscussRepo
         void DeleteUserDiscuss(UserDissucss userDiscuss);
         void UpdateUserDiscuss(UserDissucss userDiscuss);
 
-
+        List<UserDissucss> getAllCommentByDiscussId(int id);
     }
 }

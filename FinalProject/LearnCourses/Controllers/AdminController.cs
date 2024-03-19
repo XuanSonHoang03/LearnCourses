@@ -99,15 +99,16 @@ namespace LearnCourses.Controllers
             {
                 filename = Path.GetFileName(img.FileName);
                 string directoryPath = Path.Combine(_webHostEnvironment.WebRootPath, "home", "assets", "img");
-                filePath = Path.Combine(directoryPath, filename);
 
                 // Create the directory if it doesn't exist
-                if (!Directory.Exists(filePath))
+                if (!Directory.Exists(directoryPath))
                 {
-                    Directory.CreateDirectory(filePath);
+                    Directory.CreateDirectory(directoryPath);
                 }
 
-                using (FileStream fileStream = System.IO.File.Create(directoryPath + filename))
+                filePath = Path.Combine(directoryPath, filename);
+
+                using (FileStream fileStream = System.IO.File.Create(filePath))
                 {
                     img.CopyTo(fileStream);
                     fileStream.Flush();
@@ -115,6 +116,7 @@ namespace LearnCourses.Controllers
             }
             return "../home/assets/img/" + filename;
         }
+
 
 
         public IActionResult CourseDetails (int id)

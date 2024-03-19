@@ -29,5 +29,9 @@ namespace DataAccess.Repository.UserDiscussRepo
         {
             UserDiscussDAO.Instance.UpdateUserDiscuss(userDiscuss);
         }
+        public List<UserDissucss> getAllCommentByDiscussId(int id)
+        {
+            return UserDiscussDAO.Instance.getAllCommentByDiscussId(id);
+        }
     }
 }

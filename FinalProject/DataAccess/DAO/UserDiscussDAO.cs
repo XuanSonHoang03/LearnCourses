@@ -57,5 +57,12 @@ namespace DataAccess.DAO
                 context.SaveChanges();
             }
         }
+        public List<UserDissucss> getAllCommentByUserId(int id)
+        {
+            using (var context = new project_prn211Context())
+            {
+                return context.UserDissucsses.Where(m => m.UserId == id).ToList();
+            }
+        }
     }
 }

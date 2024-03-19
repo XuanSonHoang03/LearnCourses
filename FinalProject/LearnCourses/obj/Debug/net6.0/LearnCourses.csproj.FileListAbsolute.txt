@@ -586,7 +586,6 @@ D:\Ki5-SP24\PRN211\git\FinalProject\LearnCourses\obj\Debug\net6.0\LearnCourses.g
 D:\Ki5-SP24\PRN211\git\FinalProject\LearnCourses\obj\Debug\net6.0\ref\LearnCourses.dll
 D:\Ki5-SP24\PRN211\git\FinalProject\LearnCourses\bin\Debug\net6.0\web.config
 D:\Ki 5- SP24\PRN211\git\FinalProject\LearnCourses\bin\Debug\net6.0\web.config
-D:\Ki 5- SP24\PRN211\git\FinalProject\LearnCourses\bin\Debug\net6.0\appsettings.Development.json
 D:\Ki 5- SP24\PRN211\git\FinalProject\LearnCourses\bin\Debug\net6.0\appsettings.json
 D:\Ki 5- SP24\PRN211\git\FinalProject\LearnCourses\bin\Debug\net6.0\LearnCourses.staticwebassets.runtime.json
 D:\Ki 5- SP24\PRN211\git\FinalProject\LearnCourses\bin\Debug\net6.0\LearnCourses.exe

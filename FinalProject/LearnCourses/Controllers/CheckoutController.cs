@@ -1,4 +1,5 @@
-﻿using BusinessObject.Model;
+﻿
+using BusinessObject.Model;
 using DataAccess.Repository.EnrollmentRepo;
 using DataAccess.Repository.OrderRepo;
 using DataAccess.Repository.TransactionRepo;
@@ -22,15 +23,25 @@ namespace LearnCourses.Controllers
         {
             _vnPayService = vnPayService ?? throw new ArgumentNullException(nameof(vnPayService));
         }
-        /*public IActionResult CheckOut()
+        /*public IActionResult CheckOut(decimal price)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var model = new Models.OrderInfo()
+                var order = new Order()
                 {
-                    Amount = 100000,
+                    UserId = 1,
+                    CourseId = 1,
                     CreatedDate = DateTime.Now,
-                    OrderId = 1
+                    UpdatedDate = DateTime.Now
+                };
+
+                var model = new TransactionsHistory()
+                {
+                    UserId = 1,
+                    CourseId = 1,
+                    Total = price,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now
                 };
                 var paymentUrl = _vnPayService.CreatePayment(HttpContext, model);
                 return Redirect(paymentUrl);

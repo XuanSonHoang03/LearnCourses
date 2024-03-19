@@ -275,7 +275,7 @@
                             <div class="row">
                                 <div class="col-md-12 text-right">
                                     <div class="btn-group">
-                                        <form asp-action="ViewBlog">
+                                        <form asp-action="ViewBlog" method="get">
                                             <input type="hidden" name="DiscussId" value="@item.Id" >
                                             <button class="btn btn-primary">View</button>
                                             <button class="btn btn-success"><a style="color:white" href="/Blog/UpdateBlog?id=@item.Id">Update</a></button>

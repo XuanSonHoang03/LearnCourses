@@ -4,6 +4,7 @@ using DataAccess.Repository.UserDiscussRepo;
 using DataAccess.Repository.UserRepo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System.Text.RegularExpressions;
 using System.Xml;
 
@@ -134,11 +135,14 @@ namespace LearnCourses.Controllers
                 return View();
             }
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public IActionResult ViewBlog(int DiscussId)
         {
-            List<UserDissucss> listComment = userDiscussRepository.GetAllDiscuss(DiscussId);
+            if(SessionExtensions.GetString(HttpContext.Session, "id") == null)
+            {
+                return RedirectToAction("Login", "Users");
+            }
+            List<UserDissucss> listComment = userDiscussRepository.getAllCommentByDiscussId(DiscussId);
             Discussion discuss = disscussRepository.getDisscussById(DiscussId);
 
             if (discuss == null)
@@ -149,17 +153,47 @@ namespace LearnCourses.Controllers
             discuss.Content = StripHtml(discuss.Content);
 
             ViewBag.Comment = listComment;
-            ViewBag.Discuss = discuss;
 
             return View(discuss);
         }
-        public IActionResult ViewBlog()
+        public IActionResult commentBlog()
         {
-            if(SessionExtensions.GetString(HttpContext.Session, "id") == null)
+            if (SessionExtensions.GetString(HttpContext.Session, "id") == null)
             {
                 return RedirectToAction("Login", "Users");
             }
-            return View();
+            return View("ViewBlog", "View");
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult commentBlog(string content, int discussId)
+        {
+            int userId;
+            if (!int.TryParse(SessionExtensions.GetString(HttpContext.Session, "id"), out userId))
+            {
+                return RedirectToAction("Login", "Users");
+            }
+
+            User user = userRepository.GetUserById(userId);
+
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Users");
+            }
+
+            UserDissucss userDiscuss = new UserDissucss()
+            {
+                Content = content,
+                UserId = user.Id,
+                DisscussId = discussId,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
+            };
+
+            userDiscussRepository.AddUserDiscuss(userDiscuss);
+
+            return RedirectToAction("ViewBlog", new { discussId = discussId });
+        }
+
     }
 }
