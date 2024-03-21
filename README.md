@@ -21,6 +21,7 @@ LearnCourse là một nền tảng giáo dục trực tuyến cung cấp hàng n
 - Đăng ký và mua khóa học theo ý muốn.
 - Thanh toán trực tuyến thông qua các phương thức thanh toán an toàn và phổ biến.
 - Trải nghiệm học tập linh hoạt và tiện lợi từ mọi thiết bị kết nối internet.
+- Tạo các blog với những câu hỏi thắc mắc với khóa học
 
 ## Yêu Cầu Hệ Thống
 
